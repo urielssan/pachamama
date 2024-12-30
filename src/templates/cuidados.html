@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Cuidados - Pachamama</title>
+  
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">Pachamama</div>
+        <div class="nav-links">
+            <a href="{{ url_for('principal') }}">Inicio</a>
+            <a href="{{ url_for('blog') }}">Blog</a>
+            <a href="{{ url_for('cuidados') }}">Cuidados</a>
+            <a href="{{ url_for('galeria') }}">Galería</a>
+            <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        </div>
+    </nav>
+<div class="main">
+    <header class="blog-header">
+        <h1>Cuidados</h1>
+        <p>Una guia para cuidar tus plantas</p>
+    </header>
+</div>
+
+<!-- Galería -->
+<div class="gallery">
+    <div class="card">
+        <img src="/static/images/blog/maceta.jpg" alt="Blog">
+        <div class="card-content">
+            <h3>Haz tu propia maceta</h3>
+            <p>¡Transforma tu hogar con un toque personal y creativo! 
+                En esta guía, te mostramos paso a paso cómo diseñar y 
+                crear tu propia maceta, perfecta para cualquier rincón de tu casa o jardín.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="/static/images/blog/chatplantas-51.webp" alt="Cuidados">
+        <div class="card-content">
+            <h3>Plantas tóxicas para gatos</h3>
+            <p> En esta guía, te alertamos
+                  sobre las plantas más comunes que resultan tóxicas para los felinos
+                  <br>Mantén a tus gatitos seguros con esta lista imprescindible.   
+                </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="/static/images/pagina-principal/galeria.jpg" alt="Galeria">
+        <div class="card-content">
+            <h3>Cómo eliminar el pulgón</h3>
+            <p>El pulgón es una de las plagas más comunes que afectan
+                 a las plantas de interior y exterior. Existen diferentes 
+                insecticidas en el mercado, pero con trucos caseros también es posible eliminarlo.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    &copy; 2024 Pachamama. Todos los derechos reservados.
+</footer>
+</body>
+</html>

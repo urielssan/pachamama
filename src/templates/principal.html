@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Pachamama - Inicio</title>
+    
+</head>
+<body class="body-index">
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">Pachamama</div>
+        <div class="nav-links">
+            <a href="inicio">Inicio</a>
+            <a href="blog">Blog</a>
+            <a href="cuidados">Cuidados</a>
+            <a href="galeria">Galería</a>
+            <a href="logout">Cerrar sesión</a>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="main">
+        <h1>Bienvenido a Pachamama</h1>
+        <p>"Cuida a la tierra como a ti mismo"</p>
+    </div>
+
+    <!-- Galería -->
+    <div class="gallery">
+        <div class="card">
+            <a href="blog">
+                <img src="{{ url_for('static', filename='img/pagina-principal/blog.jpg') }}" alt="Blog">
+            </a>
+              
+            
+            <div class="card-content">
+                <h3>Blog </h3>
+                <hr/>
+                <p>Descubre más sobre nuestras plantas favoritas.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <a href="cuidados">
+            <img src="{{ url_for('static', filename='img/pagina-principal/cuidados.jpg') }}" alt="Cuidados">
+            </a>
+            <div class="card-content">
+                <h3>Cuidados</h3>
+                <hr/>
+                <p>Aprende cómo cuidar tus plantas en casa.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <a href="galeria">
+                <img src="{{ url_for('static', filename='img/pagina-principal/galeria.jpg') }}" alt="Galeria">
+            </a>
+            <div class="card-content">
+                <h3>Galeria</h3>
+                <hr/>
+                <p>Explora y guarda tus plantas favoritas.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2024 Pachamama. Todos los derechos reservados.
+    </footer>
+</body>
+</html>

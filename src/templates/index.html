@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pachamama - Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+</head>
+<body>
+    <div class="welcome-container">
+        <header class="header">
+            <img src="{{ url_for('static', filename='img/inicio/logo2.png') }}" alt="Logo de Pachamama" class="logo-index">
+        </header>
+        <main class="content">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-success" role="alert">
+                        {% for message in messages %}
+                            <strong>{{ message }}</strong>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <h1 class="title">Pachamama</h1>
+            <p class="subtitle">"Cuida de la tierra como a ti mismo"</p>
+            <button class="enter-btn" onclick="location.href='/principal'">Entrar</button>
+        </main>
+        <footer class="pie-index">
+            <p>© 2024 Pachamama. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+{% extends './base.html' %}
+
+
+{% block title %}Blog{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block body %}
+<form class="form-signin" action="/create_post" method="POST" enctype="multipart/form-data">
+    <img class="mb-4" src="{{ url_for('static', filename='img/logo2.png') }}" alt="" width="100" height="100">
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <br />
+    {% for message in messages %}
+    <div class="alert alert-primary alert-dismissible" role="alert">
+        <strong>{{ message }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <h3 class="h3 mb-3 fw-normal">Sube un nuevo post</h3>
+    
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    <div class="form-floating">
+        <input type="text" class="form-control" id="title" name="title" placeholder="Título del Post">
+        <label for="title">Título</label>
+    </div>
+
+    <div class="form-floating mt-2">
+        <textarea class="form-control" id="description" name="description" placeholder="Descripción del Post" rows="4"></textarea>
+        <label for="description">Descripción</label>
+    </div>
+
+    <div class="form-floating mt-2">
+        <input type="file" class="form-control" id="plant_photo" name="plant_photo">
+        <label for="plant_photo">Foto de tu Planta</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Subir Post</button>
+</form>
+
+
+<div style="margin-top: 50px; background-color: rgba(118, 148, 104, 0.8);">  
+    <h2 class="mt-5 text-center text-primary" style="padding: 1rem; color: white !important;
+     font-family:'Nunito', sans-serif !important;  
+     border-bottom: solid 1px #A18E6F; border-top: solid 1px #A18E6F;
+     font-size: large;">Últimos Artículos</h2>
+</div>
+<div id="gallery">
+    {% for post in posts %}
+    <div id="card">
+        <div id="card-content">
+            <img src="{{ url_for('static', filename='uploads/' ~ post[3]) }}" alt="Imagen de planta" style="width: 100%; max-height: 50%;">
+            <h3>
+                <a href="{{ url_for('post', post_id=post[0]) }}">{{ post[2].capitalize() }}</a>
+            </h3>
+            <hr/>
+            <p id="post-author"><strong>Publicado por: {{ post[1].capitalize() }} </strong></p>
+            <hr/>
+            <div id="post-div-content">
+            <p id="post-content">{{ post[4][:150] }}{% if post[4]|length > 150 %}...{% endif %}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+</div>

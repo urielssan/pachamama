@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Galeria</title>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">Pachamama</div>
+        <div class="nav-links">
+            <a href="{{ url_for('principal') }}">Inicio</a>
+            <a href="{{ url_for('blog') }}">Blog</a>
+            <a href="{{ url_for('cuidados') }}">Cuidados</a>
+            <a href="{{ url_for('galeria') }}">Galería</a>
+            <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        </div>
+    </nav>
+    
+</body>
+</html>

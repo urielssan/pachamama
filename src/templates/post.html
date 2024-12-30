@@ -1,0 +1,60 @@
+{% extends './base.html' %}
+
+{% block title %}{{ post[1] }}{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block body %}
+<div class="container-main">
+     <div id="main">    
+            <div class="post">
+                <h1 id="post-content-h1">{{ post[2] }}</h1>
+                <p id="post_content_subtitle" ><strong>Publicado por:</strong> {{ post[1] }} el {{ post[5].strftime('%d-%m-%Y') }}</p>
+                <img id="post-img" src="{{ url_for('static', filename='uploads/' ~ post[3]) }}" alt="Imagen de planta" style="width: 100%; height: auto;">
+                <p id="post_content-p">{{ post[4] }}</p>
+            </div>
+
+            
+            <form id="form-comment" action="{{ url_for('post', post_id=post[0]) }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="form-floating">
+                    <textarea id="form-control-textarea" id="comment" name="comment" placeholder="Escribe tu comentario" rows="4"></textarea>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary mt-2" type="submit">Comentar</button>
+            </form>
+            
+            
+            <div class="comment-container">
+                {% for comment in comments %}
+                <div class="card mt-3 comment" id="comment-div">
+                    <div id="comment-header">
+                        <img src="{{ comment.avatar_url or url_for('static', filename='default-avatar.png') }}" alt="Avatar" id="comment-avatar">
+                        <div class="comment-author-details">
+                            
+                            <strong class="comment-author">{{ comment.username }}</strong>
+                            <span class="comment-date">el {{ comment.created_at.strftime('%d-%m-%Y') }}</span>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p id="comment-text">{{ comment.comment }}</p>
+                    </div>
+                </div>
+           
+                
+            
+        
+            {% endfor %}
+        </div>
+    </div>
+
+        </div>
+            {% endblock %}
+       
